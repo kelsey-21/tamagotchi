@@ -1,0 +1,31 @@
+@import "../javascripts/components/eat/eat.scss";
+
+body {
+  background-color: green;
+}
+
+.quad {
+  width: 50%;
+  height: 50%;
+}
+
+#play {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: red;
+}
+
+#fight {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: blue;
+}
+
+#sleep {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: green;
+}
