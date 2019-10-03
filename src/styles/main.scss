@@ -1,4 +1,5 @@
 @import "../javascripts/components/eat/eat.scss";
+@import "../javascripts/components/play/play.scss";
 
 body {
   background-color: green;
@@ -7,13 +8,6 @@ body {
 .quad {
   width: 50%;
   height: 50%;
-}
-
-#play {
-  position: fixed;
-  top: 0;
-  right: 0;
-  background-color: red;
 }
 
 #fight {
