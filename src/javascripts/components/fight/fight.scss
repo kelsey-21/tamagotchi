@@ -1,0 +1,33 @@
+#fight {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: blue;
+  text-align: center;
+  #fight-buttons {
+    padding: 10px;
+  }
+  button {
+    padding: 4px;
+    margin: 10px;
+    border-radius: 4px;
+  }
+  h1 {
+    margin-bottom: 0;
+  }
+}
+
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+   appearance: none;
+
+  width: 250px;
+  height: 1em;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
