@@ -1,12 +1,11 @@
-#fight {
+#sleep {
   position: fixed;
+  right: 0;
   bottom: 0;
-  left: 0;
-  background-color: #42C0FB;
-  text-align: center;
+  background-color: #0288D1;
   display: flex;
   justify-content: center;
-  #fight-buttons {
+  #sleep-buttons {
     padding: 10px;
   }
   button {
@@ -19,7 +18,7 @@
   }
 }
 
-#fight-stuff {
+#sleep-stuff {
   position: fixed;
   bottom: 0;
   text-align: center;

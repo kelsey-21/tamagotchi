@@ -43,10 +43,12 @@ const fightButtonsPrinter = (activityArray) => {
 
 const fightPrinter = () => {
   const string = `
+    <div id="fight-stuff">
     <h1>FIGHT</h1>
     <div id="fight-buttons"></div>
     <div class="fight-progress">
       <progress id="strength" max="100" value="50"></progress>
+    </div>
     </div>
     `;
   utilities.printToDom('fight', string);
