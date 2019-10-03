@@ -31,12 +31,22 @@ const eatHealth = (event) => {
   document.getElementById('full').value = full;
 };
 
+const fullnessBarReduction = () => {
+  if (full > 0) {
+    full -= 5;
+  }
+  document.getElementById('full').value = full;
+};
+
+const hunger = () => {
+  setInterval(fullnessBarReduction, 7000);
+};
+
 const eatButtonsPrinter = (needArray) => {
   let string2 = '';
   for (let i = 0; i < needArray.length; i += 1) {
     string2 += `<button id="${needArray[i].healthy}" type="button">${needArray[i].food}</button>`;
   }
-  console.error(string2);
   utilities.printToDom('eat-buttons', string2);
   document.getElementById('healthy').addEventListener('click', eatHealth);
   document.getElementById('unhealthy').addEventListener('click', eatHealth);
@@ -47,11 +57,11 @@ const eatPrinter = () => {
     <h1>EAT</h1>
     <div id="eat-buttons"></div>
     <div class="eat-progress">
-      <progress id="full" max="100" value="90"></progress>
+      <progress id="full" max="100" value="100"></progress>
     </div>
     `;
   utilities.printToDom('eat', string);
   eatButtonsPrinter(eatArray);
 };
 
-export default { eatPrinter };
+export default { eatPrinter, hunger };
