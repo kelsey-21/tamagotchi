@@ -1,9 +1,13 @@
 @import "../javascripts/components/eat/eat.scss";
 @import "../javascripts/components/play/play.scss";
 @import "../javascripts/components/fight/fight.scss";
+@import "../javascripts/components/sleep/sleep.scss";
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-body {
-  background-color: green;
+#app {
+  font-family: Roboto;
+  text-transform: uppercase;
+  color: #212121;
 }
 
 .quad {
@@ -11,9 +15,17 @@ body {
   height: 50%;
 }
 
-#sleep {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background-color: green;
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+   appearance: none;
+
+  width: 250px;
+  height: 1em;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
