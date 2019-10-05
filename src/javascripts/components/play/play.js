@@ -1,17 +1,8 @@
 import utilities from '../../helpers/utilities';
+import playData from '../../helpers/data/playData';
+import death from '../death/death';
 
 let fun = 50;
-
-const playArray = [
-  {
-    activity: 'fetch',
-    fun: 'fun-activity',
-  },
-  {
-    activity: 'play dead',
-    fun: 'not-fun-activity',
-  },
-];
 
 const playMood = (event) => {
   const buttonType = event.target.id;
@@ -31,10 +22,11 @@ const playMood = (event) => {
   document.getElementById('fun').value = fun;
 };
 
-const playButtonsPrinter = (activityArray) => {
+const playButtonsPrinter = () => {
+  const play = playData.getPlay();
   let string2 = '';
-  for (let i = 0; i < activityArray.length; i += 1) {
-    string2 += `<button id="${activityArray[i].fun}" type="button">${activityArray[i].activity}</button>`;
+  for (let i = 0; i < play.length; i += 1) {
+    string2 += `<button id="${play[i].fun}" type="button">${play[i].activity}</button>`;
   }
   utilities.printToDom('play-buttons', string2);
   document.getElementById('fun-activity').addEventListener('click', playMood);
@@ -42,6 +34,7 @@ const playButtonsPrinter = (activityArray) => {
 };
 
 const playPrinter = () => {
+  const playArray = playData.getPlay();
   const string = `
     <h1>PLAY</h1>
     <div id="play-buttons"></div>
@@ -56,12 +49,10 @@ const playPrinter = () => {
 const playBarReduction = () => {
   if (fun > 0) {
     fun -= 25;
+  } else if (fun <= 0) {
+    death.petDeath();
   }
   document.getElementById('fun').value = fun;
 };
 
-const playful = () => {
-  setInterval(playBarReduction, 20000);
-};
-
-export default { playPrinter, playful };
+export default { playPrinter, playBarReduction };
