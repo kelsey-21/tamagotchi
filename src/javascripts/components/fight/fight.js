@@ -1,17 +1,7 @@
 import utilities from '../../helpers/utilities';
+import fightData from '../../helpers/data/fightData';
 
 let strength = 50;
-
-const fightArray = [
-  {
-    activity: 'charge',
-    fight: 'fight-activity',
-  },
-  {
-    activity: 'run away quickly',
-    fight: 'flight-activity',
-  },
-];
 
 const fightMood = (event) => {
   const buttonType = event.target.id;
@@ -31,10 +21,11 @@ const fightMood = (event) => {
   document.getElementById('strength').value = strength;
 };
 
-const fightButtonsPrinter = (activityArray) => {
+const fightButtonsPrinter = () => {
+  const fight = fightData.getFight();
   let string2 = '';
-  for (let i = 0; i < activityArray.length; i += 1) {
-    string2 += `<button id="${activityArray[i].fight}" type="button">${activityArray[i].activity}</button>`;
+  for (let i = 0; i < fight.length; i += 1) {
+    string2 += `<button id="${fight[i].fight}" type="button">${fight[i].activity}</button>`;
   }
   utilities.printToDom('fight-buttons', string2);
   document.getElementById('fight-activity').addEventListener('click', fightMood);
@@ -42,6 +33,7 @@ const fightButtonsPrinter = (activityArray) => {
 };
 
 const fightPrinter = () => {
+  const fightArray = fightData.getFight();
   const string = `
     <div id="fight-stuff">
     <h1>FIGHT</h1>
@@ -62,8 +54,4 @@ const fightBarReduction = () => {
   document.getElementById('strength').value = strength;
 };
 
-const fightOrFlight = () => {
-  setInterval(fightBarReduction, 10000);
-};
-
-export default { fightPrinter, fightOrFlight };
+export default { fightPrinter, fightBarReduction };

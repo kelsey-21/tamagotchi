@@ -1,17 +1,7 @@
 import utilities from '../../helpers/utilities';
+import sleepData from '../../helpers/data/sleepData';
 
 let energy = 100;
-
-const sleepArray = [
-  {
-    activity: 'nap for 1 minute',
-    energy: 'nap',
-  },
-  {
-    activity: 'deep sleep',
-    energy: 'slumber',
-  },
-];
 
 const sleepMood = (event) => {
   const buttonType = event.target.id;
@@ -31,10 +21,11 @@ const sleepMood = (event) => {
   document.getElementById('energy').value = energy;
 };
 
-const sleepButtonsPrinter = (activityArray) => {
+const sleepButtonsPrinter = () => {
+  const sleep = sleepData.getSleep();
   let string2 = '';
-  for (let i = 0; i < activityArray.length; i += 1) {
-    string2 += `<button id="${activityArray[i].energy}" type="button">${activityArray[i].activity}</button>`;
+  for (let i = 0; i < sleep.length; i += 1) {
+    string2 += `<button id="${sleep[i].energy}" type="button">${sleep[i].activity}</button>`;
   }
   utilities.printToDom('sleep-buttons', string2);
   document.getElementById('nap').addEventListener('click', sleepMood);
@@ -42,6 +33,7 @@ const sleepButtonsPrinter = (activityArray) => {
 };
 
 const sleepPrinter = () => {
+  const sleepArray = sleepData.getSleep();
   const string = `
     <div id="sleep-stuff">
     <h1>SLEEP</h1>
@@ -62,8 +54,4 @@ const sleepBarReduction = () => {
   document.getElementById('energy').value = energy;
 };
 
-const sleepy = () => {
-  setInterval(sleepBarReduction, 30000);
-};
-
-export default { sleepPrinter, sleepy };
+export default { sleepPrinter, sleepBarReduction };

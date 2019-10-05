@@ -1,17 +1,7 @@
 import utilities from '../../helpers/utilities';
+import eatData from '../../helpers/data/eatData';
 
 let full = 100;
-
-const eatArray = [
-  {
-    food: 'ice cream',
-    healthy: 'unhealthy',
-  },
-  {
-    food: 'pineapple',
-    healthy: 'healthy',
-  },
-];
 
 const eatHealth = (event) => {
   const buttonType = event.target.id;
@@ -31,21 +21,11 @@ const eatHealth = (event) => {
   document.getElementById('full').value = full;
 };
 
-const fullnessBarReduction = () => {
-  if (full > 0) {
-    full -= 5;
-  }
-  document.getElementById('full').value = full;
-};
-
-const hunger = () => {
-  setInterval(fullnessBarReduction, 7000);
-};
-
-const eatButtonsPrinter = (needArray) => {
+const eatButtonsPrinter = () => {
+  const eat = eatData.getEat();
   let string2 = '';
-  for (let i = 0; i < needArray.length; i += 1) {
-    string2 += `<button id="${needArray[i].healthy}" type="button">${needArray[i].food}</button>`;
+  for (let i = 0; i < eat.length; i += 1) {
+    string2 += `<button id="${eat[i].healthy}" type="button">${eat[i].food}</button>`;
   }
   utilities.printToDom('eat-buttons', string2);
   document.getElementById('healthy').addEventListener('click', eatHealth);
@@ -53,6 +33,7 @@ const eatButtonsPrinter = (needArray) => {
 };
 
 const eatPrinter = () => {
+  const eatArray = eatData.getEat();
   const string = `
     <h1>EAT</h1>
     <div id="eat-buttons"></div>
@@ -64,4 +45,11 @@ const eatPrinter = () => {
   eatButtonsPrinter(eatArray);
 };
 
-export default { eatPrinter, hunger };
+const eatBarReduction = () => {
+  if (full > 0) {
+    full -= 5;
+  }
+  document.getElementById('full').value = full;
+};
+
+export default { eatPrinter, eatBarReduction };
