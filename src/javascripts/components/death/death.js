@@ -3,7 +3,7 @@ import './death.scss';
 
 const petDeath = () => {
   const string = `
-  <h1>DEATH</h1>
+  <img class="pet-death" src="./src/images/fox-dead.png" />
   `;
   util.printToDom('pet', string);
 };

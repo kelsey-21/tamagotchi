@@ -8,7 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  .pet-death {
-    filter: grayscale(100%);
+
+  img {
+    max-width: 100px;
   }
 }
