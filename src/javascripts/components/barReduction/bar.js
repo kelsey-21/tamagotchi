@@ -9,4 +9,4 @@ setInterval(() => {
   eat.eatBarReduction();
   play.playBarReduction();
   fight.fightBarReduction();
-}, 20000);
+}, 1000);

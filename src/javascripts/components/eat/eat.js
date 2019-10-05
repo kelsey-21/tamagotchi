@@ -1,5 +1,6 @@
 import utilities from '../../helpers/utilities';
 import eatData from '../../helpers/data/eatData';
+import death from '../death/death';
 
 let full = 100;
 
@@ -14,6 +15,7 @@ const eatHealth = (event) => {
   } else if (buttonType === 'unhealthy') {
     if (full < 0) {
       full = 0;
+      death.petDeath();
     } else {
       full -= 3;
     }
@@ -48,6 +50,8 @@ const eatPrinter = () => {
 const eatBarReduction = () => {
   if (full > 0) {
     full -= 5;
+  } if (full <= 0) {
+    death.petDeath();
   }
   document.getElementById('full').value = full;
 };

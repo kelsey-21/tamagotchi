@@ -1,5 +1,6 @@
 import utilities from '../../helpers/utilities';
 import sleepData from '../../helpers/data/sleepData';
+import death from '../death/death';
 
 let energy = 100;
 
@@ -50,6 +51,8 @@ const sleepPrinter = () => {
 const sleepBarReduction = () => {
   if (energy > 0) {
     energy -= 75;
+  } else if (energy <= 0) {
+    death.petDeath();
   }
   document.getElementById('energy').value = energy;
 };

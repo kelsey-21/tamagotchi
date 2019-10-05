@@ -1,5 +1,6 @@
 import utilities from '../../helpers/utilities';
 import fightData from '../../helpers/data/fightData';
+import death from '../death/death';
 
 let strength = 50;
 
@@ -50,6 +51,8 @@ const fightPrinter = () => {
 const fightBarReduction = () => {
   if (strength > 0) {
     strength -= 2;
+  } else if (strength <= 0) {
+    death.petDeath();
   }
   document.getElementById('strength').value = strength;
 };

@@ -1,5 +1,6 @@
 import utilities from '../../helpers/utilities';
 import playData from '../../helpers/data/playData';
+import death from '../death/death';
 
 let fun = 50;
 
@@ -48,6 +49,8 @@ const playPrinter = () => {
 const playBarReduction = () => {
   if (fun > 0) {
     fun -= 25;
+  } else if (fun <= 0) {
+    death.petDeath();
   }
   document.getElementById('fun').value = fun;
 };
