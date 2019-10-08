@@ -7,17 +7,15 @@ let full = 100;
 const eatHealth = (event) => {
   const buttonType = event.target.id;
   if (buttonType === 'healthy') {
-    if (full > 100) {
+    full += 10;
+    if (full >= 100) {
       full = 100;
-    } else {
-      full += 10;
     }
   } else if (buttonType === 'unhealthy') {
-    if (full < 0) {
+    full -= 3;
+    if (full <= 0) {
       full = 0;
       death.petDeath();
-    } else {
-      full -= 3;
     }
   }
   document.getElementById('full').value = full;

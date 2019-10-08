@@ -7,16 +7,14 @@ let fun = 50;
 const playMood = (event) => {
   const buttonType = event.target.id;
   if (buttonType === 'fun-activity') {
-    if (fun > 100) {
+    fun += 50;
+    if (fun >= 100) {
       fun = 100;
-    } else {
-      fun += 50;
     }
   } else if (buttonType === 'not-fun-activity') {
-    if (fun > 100) {
+    fun += 2;
+    if (fun >= 100) {
       fun = 100;
-    } else {
-      fun += 2;
     }
   }
   document.getElementById('fun').value = fun;
