@@ -7,16 +7,14 @@ let energy = 100;
 const sleepMood = (event) => {
   const buttonType = event.target.id;
   if (buttonType === 'nap') {
-    if (energy > 100) {
+    energy += 50;
+    if (energy >= 100) {
       energy = 100;
-    } else {
-      energy += 50;
     }
   } else if (buttonType === 'slumber') {
-    if (energy > 100) {
+    energy += 60;
+    if (energy >= 100) {
       energy = 100;
-    } else {
-      energy += 60;
     }
   }
   document.getElementById('energy').value = energy;

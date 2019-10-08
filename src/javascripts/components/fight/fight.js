@@ -7,16 +7,14 @@ let strength = 50;
 const fightMood = (event) => {
   const buttonType = event.target.id;
   if (buttonType === 'fight-activity') {
-    if (strength < 0) {
+    strength -= 10;
+    if (strength <= 0) {
       strength = 0;
-    } else {
-      strength -= 10;
     }
   } else if (buttonType === 'flight-activity') {
-    if (strength > 100) {
+    strength += 2;
+    if (strength >= 100) {
       strength = 100;
-    } else {
-      strength += 2;
     }
   }
   document.getElementById('strength').value = strength;
