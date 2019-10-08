@@ -20,6 +20,7 @@ const playMood = (event) => {
     }
   }
   document.getElementById('fun').value = fun;
+  utilities.printToDom('progress-value-fun', `${fun}%`);
 };
 
 const playButtonsPrinter = () => {
@@ -41,6 +42,7 @@ const playPrinter = () => {
     <div class="play-progress">
       <progress id="fun" max="100" value="50"></progress>
     </div>
+    <div id="progress-value-fun"></div>
     `;
   utilities.printToDom('play', string);
   playButtonsPrinter(playArray);
@@ -53,6 +55,7 @@ const playBarReduction = () => {
     death.petDeath();
   }
   document.getElementById('fun').value = fun;
+  utilities.printToDom('progress-value-fun', `${fun}%`);
 };
 
 export default { playPrinter, playBarReduction };

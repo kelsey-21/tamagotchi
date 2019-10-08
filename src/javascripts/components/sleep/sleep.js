@@ -20,6 +20,7 @@ const sleepMood = (event) => {
     }
   }
   document.getElementById('energy').value = energy;
+  utilities.printToDom('progress-value-energy', `${energy}%`);
 };
 
 const sleepButtonsPrinter = () => {
@@ -42,6 +43,7 @@ const sleepPrinter = () => {
     <div class="sleep-progress">
       <progress id="energy" max="100" value="100"></progress>
     </div>
+    <div id="progress-value-energy"></div>
     </div>
     `;
   utilities.printToDom('sleep', string);
@@ -55,6 +57,7 @@ const sleepBarReduction = () => {
     death.petDeath();
   }
   document.getElementById('energy').value = energy;
+  utilities.printToDom('progress-value-energy', `${energy}%`);
 };
 
 export default { sleepPrinter, sleepBarReduction };
