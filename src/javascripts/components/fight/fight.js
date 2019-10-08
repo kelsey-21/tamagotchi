@@ -20,6 +20,7 @@ const fightMood = (event) => {
     }
   }
   document.getElementById('strength').value = strength;
+  utilities.printToDom('progress-value-fight', `${strength}%`);
 };
 
 const fightButtonsPrinter = () => {
@@ -42,6 +43,7 @@ const fightPrinter = () => {
     <div class="fight-progress">
       <progress id="strength" max="100" value="50"></progress>
     </div>
+    <div id="progress-value-fight"></div>
     </div>
     `;
   utilities.printToDom('fight', string);
@@ -55,6 +57,7 @@ const fightBarReduction = () => {
     death.petDeath();
   }
   document.getElementById('strength').value = strength;
+  utilities.printToDom('progress-value-fight', `${strength}%`);
 };
 
 export default { fightPrinter, fightBarReduction };

@@ -21,6 +21,7 @@ const eatHealth = (event) => {
     }
   }
   document.getElementById('full').value = full;
+  utilities.printToDom('progress-value', `${full}%`);
 };
 
 const eatButtonsPrinter = () => {
@@ -42,6 +43,7 @@ const eatPrinter = () => {
     <div class="eat-progress">
       <progress id="full" max="100" value="100"></progress>
     </div>
+    <div id="progress-value"></div>
     `;
   utilities.printToDom('eat', string);
   eatButtonsPrinter(eatArray);
@@ -54,6 +56,7 @@ const eatBarReduction = () => {
     death.petDeath();
   }
   document.getElementById('full').value = full;
+  utilities.printToDom('progress-value', `${full}%`);
 };
 
 export default { eatPrinter, eatBarReduction };
